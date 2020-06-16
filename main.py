@@ -66,10 +66,10 @@ class RiotApi:
 def main():
     api = RiotApi(API_KEY)
     summoner_name = "Fidoz"
-    # print(api.get_summoner(summoner_name))
-    # print(api.get_most_recent_match(summoner_name))
-    # print(api.get_most_recent_match_participant_id(summoner_name))
-    # print(api.get_most_recent_match_timeline(summoner_name))
+    print(api.get_summoner(summoner_name))
+    print(api.get_most_recent_match(summoner_name))
+    print(api.get_most_recent_match_participant_id(summoner_name))
+    print(api.get_most_recent_match_timeline(summoner_name))
     print(api.get_kills_and_assists_by_summoner(summoner_name))
 
 
