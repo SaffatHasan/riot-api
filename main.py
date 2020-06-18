@@ -9,6 +9,11 @@ class RiotApi:
         self.API_KEY = API_KEY
         self.base = "https://na1.api.riotgames.com"
 
+    def get_live_game_info_by_summoner(self, summoner_name):
+        summoner_id = self.get_summoner(summoner_name)['id']
+        url = f"/lol/spectator/v4/active-games/by-summoner/{summoner_id}"
+        return self.perform_request(url)
+
     def get_kills_and_assists_by_summoner(self, summoner_name):
         participant_id = self.get_most_recent_match_participant_id(summoner_name)
         match_timeline = self.get_most_recent_match_timeline(summoner_name)
@@ -71,6 +76,7 @@ def main():
     print(api.get_most_recent_match_participant_id(summoner_name))
     print(api.get_most_recent_match_timeline(summoner_name))
     print(api.get_kills_and_assists_by_summoner(summoner_name))
+    print(api.get_live_game_info_by_summoner(summoner_name))
 
 
 if __name__ == "__main__":
